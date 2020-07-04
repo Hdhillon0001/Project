@@ -48,6 +48,7 @@ import com.project.Const;
 import com.project.R;
 import com.project.model.Upload;
 import com.project.model.User;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -136,6 +137,24 @@ public class ProfileFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference(Const.DATABASE_PATH_UPLOADS);
 
         profileImage = root.findViewById(R.id.profile_image);
+
+        StorageReference storageRef =
+                FirebaseStorage.getInstance().getReference();
+        storageRef.child("uploads/" + userId + ".jpg").getDownloadUrl()
+                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Picasso.get().load(uri).into(profileImage);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -361,7 +380,7 @@ public class ProfileFragment extends Fragment {
             progressDialog.show();
 
             //getting the storage reference
-            StorageReference sRef = storageReference.child(Const.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + "." + getFileExtension(filePath));
+            StorageReference sRef = storageReference.child(Const.STORAGE_PATH_UPLOADS + userId + "." + getFileExtension(filePath));
 
             //adding the file to reference
             sRef.putFile(filePath)
@@ -375,7 +394,7 @@ public class ProfileFragment extends Fragment {
                             Toast.makeText(getContext(), "Profile Image Uploaded ", Toast.LENGTH_LONG).show();
 
                             //creating the upload object to store uploaded image details
-                            Upload upload = new Upload(userId, taskSnapshot.getUploadSessionUri().toString());
+                            Upload upload = new Upload(userId, taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
 
                             //adding an upload to firebase database
                             String uploadId = mDatabase.push().getKey();

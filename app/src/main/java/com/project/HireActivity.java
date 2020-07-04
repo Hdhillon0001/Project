@@ -38,7 +38,7 @@ import static com.project.Const.UserId;
 public class HireActivity extends AppCompatActivity {
 
     String userId, HiredUserId, NameHired, name;
-    AppCompatEditText tvName, tvEmail, tvAddress, tvPhone, tvCity, tvPrice;
+    AppCompatEditText tvName, tvEmail, tvAddress, tvPhone, tvCity, tvPrice,tvGender;
     final Calendar myCalendar = Calendar.getInstance();
     final Calendar myCalendarTo = Calendar.getInstance();
     EditText etFrom, etTo;
@@ -65,6 +65,7 @@ public class HireActivity extends AppCompatActivity {
         tvPhone = findViewById(R.id.tvPhone);
         tvCity = findViewById(R.id.tvCity);
         tvPrice = findViewById(R.id.tvPrice);
+        tvGender = findViewById(R.id.tvGender);
 
         etFrom = findViewById(R.id.etFrom);
         etTo = findViewById(R.id.etTo);
@@ -97,6 +98,7 @@ public class HireActivity extends AppCompatActivity {
                         tvPhone.setText(user.getMobile());
                         tvCity.setText(user.getCity());
                         tvPrice.setText(String.format("%s$ Per Day", user.getPrice()));
+                        tvGender.setText(String.format("Gender: %s", tvGender.getText()));
 
                     }
 

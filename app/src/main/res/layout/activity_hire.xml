@@ -89,7 +89,15 @@
                         android:padding="@dimen/margin10"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
-
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/tvGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin10"
+                        android:background="@color/colorPrimary"
+                        android:padding="@dimen/margin10"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnRatings"
                         android:layout_width="match_parent"

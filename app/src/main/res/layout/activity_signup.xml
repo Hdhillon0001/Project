@@ -149,6 +149,33 @@
                 </androidx.cardview.widget.CardView>
 
                 <RadioGroup
+                    android:id="@+id/radioGroupGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rdbMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="true"
+                    android:text="Male"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:id="@+id/rdbFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:text="Female"
+                    android:textColor="@android:color/white"/>
+                </RadioGroup>
+
+                <RadioGroup
                     android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,9 +199,7 @@
                         android:checked="false"
                         android:layout_marginStart="@dimen/margin5"
                         android:text="Nurse"
-                        android:textColor="@android:color/white"
-
-                        />
+                        android:textColor="@android:color/white"/>
 
                     <RadioButton
                         android:id="@+id/rdbBabySitters"

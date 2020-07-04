@@ -34,8 +34,8 @@ import java.util.Objects;
 public class SignUpActivity extends AppCompatActivity {
 
     private AppCompatEditText etName, etEmail, etMobile, etAddress, etCity, etPassword, etConfirm, etPrice;
-    private String name, email, address, city, mobile, password, confirm, userType, price = "0";
-    RadioButton rdbUser, rdbNurse, rdbBabySitters;
+    private String name, email, address, city, mobile, password, confirm, userType, price = "0",gender;
+    RadioButton rdbUser, rdbNurse, rdbBabySitters, rdbMale, rdbFemale;
     private int UserCount = 0;
     private ContentLoadingProgressBar progressBar;
     private FirebaseAuth mAuth;
@@ -63,6 +63,9 @@ public class SignUpActivity extends AppCompatActivity {
         rdbUser = findViewById(R.id.rdbUser);
         rdbNurse = findViewById(R.id.rdbNurse);
         rdbBabySitters = findViewById(R.id.rdbBabySitters);
+
+        rdbMale = findViewById(R.id.rdbMale);
+        rdbFemale = findViewById(R.id.rdbFemale);
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
@@ -104,6 +107,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (mobile.length() != 10) {
                     etMobile.setError("");
                     return;
+
                 }
                 if (password.length() < 6) {
                     etPassword.setError("Minimum Length 6");
@@ -125,7 +129,11 @@ public class SignUpActivity extends AppCompatActivity {
                 } else if (rdbNurse.isChecked()) {
                     userType = "N";
                 }
-
+                     if(rdbMale.isChecked()){
+                         gender="Male";
+                     }else if(rdbFemale.isChecked()){
+                         gender="Female";
+                     }
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
@@ -144,7 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
                         } else {
                             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
                             String userId = mDatabase.push().getKey();
-                            User user = new User(userId, name, email, mobile, address, city, userType, password, price);
+                            User user = new User(userId, name, email, mobile, address, city, userType, password, price,gender);
                             mDatabase.child(Objects.requireNonNull(userId)).setValue(user);
                             progressBar.hide();
                             Toast.makeText(SignUpActivity.this, "User Added Successfully!", Toast.LENGTH_LONG).show();

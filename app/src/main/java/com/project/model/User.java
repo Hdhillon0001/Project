@@ -2,13 +2,13 @@ package com.project.model;
 
 public class User {
 
-    private String userId, name, email, mobile, address, city, userType, password,price;
+    private String userId, name, email, mobile, address, city, userType, password, price, gender;
 
 
     public User() {
     }
 
-    public User(String userId, String name, String email, String mobile, String address, String city, String userType, String password,String price) {
+    public User(String userId, String name, String email, String mobile, String address, String city, String userType, String password, String price, String gender) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -17,7 +17,8 @@ public class User {
         this.city = city;
         this.userType = userType;
         this.password = password;
-        this.price=price;
+        this.price = price;
+        this.gender = gender;
     }
 
     public String getUserId() {
@@ -90,5 +91,13 @@ public class User {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
