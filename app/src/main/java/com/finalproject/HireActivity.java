@@ -176,11 +176,11 @@ public class HireActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(etFrom.getText().toString())) {
-                    etFrom.setError("");
+                    etFrom.setError("ENTER A VALID DATE !");
                     return;
                 }
                 if (TextUtils.isEmpty(etTo.getText().toString())) {
-                    etTo.setError("");
+                    etTo.setError("ENTER A VALID DATE !");
                     return;
                 }
 

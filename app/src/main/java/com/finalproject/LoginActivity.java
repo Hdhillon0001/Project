@@ -87,11 +87,11 @@ public class LoginActivity extends AppCompatActivity {
                 email = etEmail.getText().toString();
                 password = etPassword.getText().toString();
                 if (TextUtils.isEmpty(email)) {
-                    etEmail.setError("");
+                    etEmail.setError("This field is empty !");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    etPassword.setError("");
+                    etPassword.setError("This field is empty !");
                     return;
                 }
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -122,6 +122,8 @@ public class LoginActivity extends AppCompatActivity {
                                                     FirebaseUser user = mAuth.getCurrentUser();
                                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                                     startActivity(i);
+                                                    Toast.makeText(LoginActivity.this, "Login succesfull",
+                                                            Toast.LENGTH_SHORT).show();
                                                     finish();
 
 

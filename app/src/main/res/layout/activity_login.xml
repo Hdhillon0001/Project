@@ -11,11 +11,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="138dp"
-            android:layout_height="73dp"
+            android:layout_width="195dp"
+            android:layout_height="152dp"
 
             android:layout_marginTop="108dp"
-            android:src="@drawable/babyicon"
+            android:src="@drawable/babypic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin20"
                 android:gravity="center_horizontal"
-                android:padding="10dp"
+                android:padding="11dp"
                 android:text="Login"
                 android:textColor="@android:color/white"
                 android:textSize="36sp" />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
             app:cardElevation="10dp"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="155dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
