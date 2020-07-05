@@ -97,16 +97,16 @@ public class SignUpActivity extends AppCompatActivity {
                 price = Objects.requireNonNull(etPrice.getText()).toString();
 
                 if (TextUtils.isEmpty(name)) {
-                    etName.setError("");
+                    etName.setError("This field is empty!");
                     return;
                 }
                 // blan space is for error messages
                 if (TextUtils.isEmpty(email)) {
-                    etEmail.setError("");
+                    etEmail.setError("This field is empty!");
                     return;
                 }
                 if (mobile.length() != 10) {
-                    etMobile.setError("");
+                    etMobile.setError("the Phone number length should be 10");
                     return;
 
                 }
@@ -116,7 +116,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 if (!TextUtils.equals(password, confirm)) {
 
-                    etConfirm.setError("");
+                    etConfirm.setError("Password does not match !");
                     return;
                 }
             /*    if (TextUtils.isEmpty(price)) {*/
